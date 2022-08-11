@@ -1,7 +1,7 @@
 # Student Searcher
 
 ## About
-A mini-project highlighting SPA capabilities in .NET
+A mini project highlighting SPA capabilities in .NET
 
 ## Requirements
 - Create object-oriented SPA in .NET
