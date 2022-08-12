@@ -1,15 +1,55 @@
+#pragma warning disable CS8618
 namespace StudentSearcher.Data;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 public class Contact
 {
-    public string? LastName { get; set; }
-    public string? FirstName { get; set; }
-    public string? Relationship { get; set; }
-    public string? EmailAddress { get; set; }
-    public string? MobileNumber { get; set; } // TEMP: Formatting to be implemented
-    public string? Address { get; set; }
-    public string? City { get; set; } = "Eagle Rock"; // TEMP: Placeholder city
-    public string? State { get; set; } = "CA"; // TEMP: State abbrev. to be implemented
+    [Key]
+    public int ContactID { get; set; }
+
+    [Required]
+    [MinLength(2)]
+    [MaxLength(15)]
+    public string LastName { get; set; }
+
+    [Required]
+    [MinLength(2)]
+    [MaxLength(15)]
+    public string FirstName { get; set; }
+    
+    [Required]
+    [MinLength(2)]
+    [MaxLength(15)]
+    public string Relationship { get; set; }
+
+    [Required]
+    [MinLength(3)]
+    public string EmailAddress { get; set; }
+
+    [Required]
+    public string MobileNumber { get; set; } // TEMP: Formatting to be implemented
+
+    [Required]
+    [MinLength(5)]
+    [MaxLength(35)]
+    public string Address { get; set; }
+
+    [Required]
+    [MinLength(2)]
+    [MaxLength(28)]
+    public string City { get; set; } = "Eagle Rock"; // TEMP: Placeholder city
+
+    [Required]
+    [MinLength(2)]
+    [MaxLength(2)]
+    public string State { get; set; } = "CA"; // TEMP: State abbrev. to be implemented
+
+    [Required]
+    [Range(00501,99999)]
     public int ZIPCode { get; set; } = 99999;
-    public int StudentID { get; set; } // TEMP: Auto-incremenet to be implemented
+
+    // Many-to-One
+    public int StudentID { get; set; }
+    public Student? Student { get; set; }
 }
