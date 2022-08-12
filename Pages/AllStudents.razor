@@ -1,0 +1,63 @@
+@page "/students"
+@using StudentSearcher.Data
+
+<PageTitle>StudentSeacher - Student Data</PageTitle>
+<link href="/css/custom.css" rel="stylesheet" />
+
+<h1>Student Data</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>School Code</th>
+            <th>Student ID</th>
+            <th>Last Name</th>
+            <th>First Name</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Zip Code</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Student s in students)
+        {
+            <tr>
+                <td>@s.SchoolCode</td>
+                <td>
+                    <a href="/students/@s.StudentID">
+                        @s.StudentID
+                    </a>
+                </td>
+                <td>@s.LastName</td>
+                <td>@s.FirstName</td>
+                <td>@s.Address</td>
+                <td>@s.City</td>
+                <td>@s.State</td>
+                <td>@s.ZIPCode</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code 
+{
+    @* TEMP: List prior to DB integration *@
+    private List<Student> students = new()
+    {
+        new Student
+        {
+            StudentID = 99400001,
+            LastName = "Abbott",
+            FirstName = "Allan",
+            Address = "1118 Glenview Lane",
+        },
+        new Student
+        {
+            StudentID = 99400011,
+            LastName = "Abrahamson",
+            FirstName = "Arnold",
+            Address = "1126 E Walton Rd.",
+        }
+    };
+}

@@ -1,9 +1,29 @@
 ﻿@page "/"
 
-<PageTitle>Index</PageTitle>
+<PageTitle>StudentSeacher</PageTitle>
 
-<h1>Hello, world!</h1>
+<i><h1>StudentSearcher</h1></i>
 
-Welcome to your new app.
+<table>
+    <thead>
+    </thead>
+    <tbody>
+        @foreach (var item in items)
+        {
+            <tr>
+                <td>@item.Key:</td>
+                <td style="padding-left: 20px">@item.Value</td>
+            </tr>
+        }
+    </tbody>
+</table>
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+@code 
+{
+    Dictionary<string, string> items = new()
+    {
+        {"Created By", "Michael Angelo Catapang"},
+        {"Started By", "August 11, 2022"},
+        {"Submission Date", "Pending"}
+    };
+}

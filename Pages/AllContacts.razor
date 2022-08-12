@@ -1,0 +1,83 @@
+@page "/contacts"
+@using StudentSearcher.Data
+
+<PageTitle>StudentSeacher - Student Data</PageTitle>
+<link href="/css/custom.css" rel="stylesheet" />
+
+<h1>Contact Data</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Student ID</th>
+            <th>Last Name</th>
+            <th>First Name</th>
+            <th>Relationship</th>
+            <th>Email Address</th>
+            <th>Mobile</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Zip Code</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Contact c in contacts)
+        {
+            <tr>
+                <td>
+                    <a href="/students/@c.StudentID">
+                        @c.StudentID
+                    </a>
+                </td>
+                <td>@c.LastName</td>
+                <td>@c.FirstName</td>
+                <td>@c.Relationship</td>
+                <td>@c.EmailAddress</td>
+                <td>@c.MobileNumber</td>
+                <td>@c.Address</td>
+                <td>@c.City</td>
+                <td>@c.State</td>
+                <td>@c.ZIPCode</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code 
+{
+    @* TEMP: List prior to DB integration *@
+    private List<Contact> contacts = new()
+    {
+        new Contact
+        {
+            LastName = "Abbott",
+            FirstName = "Sara",
+            Relationship = "Mother", 
+            EmailAddress = "sara@example.com",
+            MobileNumber = "949-123-4567",
+            Address = "1118 Glenview Lane",
+            StudentID = 99400001
+        },
+        new Contact
+        {
+            LastName = "Abbott",
+            FirstName = "Adam",
+            Relationship = "Father", 
+            EmailAddress = "adam@example.com",
+            MobileNumber = "949-123-5678",
+            Address = "1118 Glenview Lane",
+            StudentID = 99400001
+        },
+        new Contact
+        {
+            LastName = "Abrahamson",
+            FirstName = "Jonathan",
+            Relationship = "Uncle", 
+            EmailAddress = "jonathan@example.com",
+            MobileNumber = "949-234-4567",
+            Address = "1126 E Walton Rd.",
+            StudentID = 99400011
+        }
+    };
+}
