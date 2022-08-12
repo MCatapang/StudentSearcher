@@ -1,10 +1,11 @@
 #pragma warning disable CS8618
-namespace StudentSearcher.Data;
 using Microsoft.EntityFrameworkCore;
+namespace StudentSearcher.Models;
 
 public class MyContext : DbContext
 {
-    public MyContext(DbContextOptions options) : base(options) { }
+    public MyContext() { }
+    public MyContext(DbContextOptions<MyContext> options) : base(options) { }
 
     /* 
         Logic for Student primary key incrementation.
@@ -21,5 +22,4 @@ public class MyContext : DbContext
     // Refer to StudentSearcherDB on MySQL
     public DbSet<Student> Students { get; set; }
     public DbSet<Contact> Contacts { get; set; }
-
 }

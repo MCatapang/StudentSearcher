@@ -1,12 +1,12 @@
 #pragma warning disable CS8618
-namespace StudentSearcher.Data;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+namespace StudentSearcher.Models;
 
-public class Contact
+public class Student
 {
     [Key]
-    public int ContactID { get; set; }
+    public int StudentID { get; set; } 
+    // See 'MyContext.cs' for unfinished incrementation logic
 
     [Required]
     [MinLength(2)]
@@ -17,18 +17,6 @@ public class Contact
     [MinLength(2)]
     [MaxLength(15)]
     public string FirstName { get; set; }
-    
-    [Required]
-    [MinLength(2)]
-    [MaxLength(15)]
-    public string Relationship { get; set; }
-
-    [Required]
-    [MinLength(3)]
-    public string EmailAddress { get; set; }
-
-    [Required]
-    public string MobileNumber { get; set; } // TEMP: Formatting to be implemented
 
     [Required]
     [MinLength(5)]
@@ -49,7 +37,10 @@ public class Contact
     [Range(00501,99999)]
     public int ZIPCode { get; set; } = 99999;
 
-    // Many-to-One
-    public int StudentID { get; set; }
-    public Student? Student { get; set; }
+    [Required]
+    [Range(100, 999)]
+    public int SchoolCode { get; set; } = 994;
+
+    // One-to-Many
+    public List<Contact> Contacts { get; set; } = new List<Contact>();
 }

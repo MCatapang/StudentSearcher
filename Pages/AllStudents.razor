@@ -1,5 +1,5 @@
 @page "/students"
-@using StudentSearcher.Data
+@using StudentSearcher.Models 
 
 <PageTitle>StudentSeacher - Student Data</PageTitle>
 <link href="/css/custom.css" rel="stylesheet" />
@@ -40,6 +40,10 @@
     </tbody>
 </table>
 
+<ul>
+
+</ul>
+
 @code 
 {
     @* TEMP: List prior to DB integration *@
@@ -60,4 +64,11 @@
             Address = "1126 E Walton Rd.",
         }
     };
+
+    DAL dal = new DAL();
+    private List<Student> studentList;
+    protected override void OnInitialized()
+    {
+        studentList = dal.GetStudents();
+    }
 }
