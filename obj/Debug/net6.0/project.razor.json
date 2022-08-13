@@ -164,35 +164,68 @@
         }
       },
       {
-        "HashCode": -451703409,
+        "HashCode": -1137171604,
         "Kind": "Components.Component",
-        "Name": "StudentSearcher.App",
+        "Name": "StudentSearcher.Shared.Header",
         "AssemblyName": "StudentSearcher",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "App"
+            "TagName": "Header"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "StudentSearcher.App"
+          "Common.TypeName": "StudentSearcher.Shared.Header"
         }
       },
       {
-        "HashCode": 1583204748,
+        "HashCode": 358143237,
         "Kind": "Components.Component",
-        "Name": "StudentSearcher.App",
+        "Name": "StudentSearcher.Shared.Header",
         "AssemblyName": "StudentSearcher",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "StudentSearcher.App"
+            "TagName": "StudentSearcher.Shared.Header"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "StudentSearcher.App",
+          "Common.TypeName": "StudentSearcher.Shared.Header",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 60811214,
+        "Kind": "Components.Component",
+        "Name": "StudentSearcher.Shared.NavMenu",
+        "AssemblyName": "StudentSearcher",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "NavMenu"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "StudentSearcher.Shared.NavMenu"
+        }
+      },
+      {
+        "HashCode": -1506846405,
+        "Kind": "Components.Component",
+        "Name": "StudentSearcher.Shared.NavMenu",
+        "AssemblyName": "StudentSearcher",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "StudentSearcher.Shared.NavMenu"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "StudentSearcher.Shared.NavMenu",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -293,35 +326,35 @@
         }
       },
       {
-        "HashCode": 60811214,
+        "HashCode": -451703409,
         "Kind": "Components.Component",
-        "Name": "StudentSearcher.Shared.NavMenu",
+        "Name": "StudentSearcher.App",
         "AssemblyName": "StudentSearcher",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "NavMenu"
+            "TagName": "App"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "StudentSearcher.Shared.NavMenu"
+          "Common.TypeName": "StudentSearcher.App"
         }
       },
       {
-        "HashCode": -1506846405,
+        "HashCode": 1583204748,
         "Kind": "Components.Component",
-        "Name": "StudentSearcher.Shared.NavMenu",
+        "Name": "StudentSearcher.App",
         "AssemblyName": "StudentSearcher",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "StudentSearcher.Shared.NavMenu"
+            "TagName": "StudentSearcher.App"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "StudentSearcher.Shared.NavMenu",
+          "Common.TypeName": "StudentSearcher.App",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -16659,6 +16692,11 @@
     {
       "FilePath": "/Users/maocatap/Documents/Projects/StudentSearcher/Pages/Index.razor",
       "TargetPath": "Pages\\Index.razor",
+      "FileKind": "component"
+    },
+    {
+      "FilePath": "/Users/maocatap/Documents/Projects/StudentSearcher/Shared/Header.razor",
+      "TargetPath": "Shared\\Header.razor",
       "FileKind": "component"
     },
     {

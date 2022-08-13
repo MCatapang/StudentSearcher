@@ -1,22 +1,20 @@
 ﻿@page "/"
 
 <PageTitle>StudentSeacher</PageTitle>
+<link href="/css/custom.css" rel="stylesheet" />
 
-<i><h1>StudentSearcher</h1></i>
+<Header></Header>
 
-<table>
-    <thead>
-    </thead>
-    <tbody>
-        @foreach (var item in items)
-        {
-            <tr>
-                <td>@item.Key:</td>
-                <td style="padding-left: 20px">@item.Value</td>
-            </tr>
-        }
-    </tbody>
-</table>
+
+<ul>
+    @foreach (var item in items)
+    {
+        <li>
+            <b>@item.Key:</b> @item.Value
+        </li>
+    }
+</ul>
+
 
 @code 
 {

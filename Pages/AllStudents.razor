@@ -1,63 +1,81 @@
 @page "/students"
-@using StudentSearcher.Data
+@using StudentSearcher.Models 
+@inject IDbContextFactory<MyContext> DbFactory
 
 <PageTitle>StudentSeacher - Student Data</PageTitle>
 <link href="/css/custom.css" rel="stylesheet" />
 
-<h1>Student Data</h1>
+<Header></Header>
+<h2>Student Data</h2>
 
-<table>
-    <thead>
-        <tr>
-            <th>School Code</th>
-            <th>Student ID</th>
-            <th>Last Name</th>
-            <th>First Name</th>
-            <th>Address</th>
-            <th>City</th>
-            <th>State</th>
-            <th>Zip Code</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (Student s in students)
-        {
+
+@* Conditional rendering *@
+@if(IsLoading)
+{
+    <h3 class="loading">Loading...</h3>
+}
+else if (StudentList.Count() == 0)
+{
+    <h3 class="none">No students in DB</h3>
+}
+else
+{
+    <table class="dbDataTable">
+        <thead>
             <tr>
-                <td>@s.SchoolCode</td>
-                <td>
-                    <a href="/students/@s.StudentID">
-                        @s.StudentID
-                    </a>
-                </td>
-                <td>@s.LastName</td>
-                <td>@s.FirstName</td>
-                <td>@s.Address</td>
-                <td>@s.City</td>
-                <td>@s.State</td>
-                <td>@s.ZIPCode</td>
+                <th>School Code</th>
+                <th>Student ID</th>
+                <th>Last Name</th>
+                <th>First Name</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Zip Code</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (Student s in StudentList)
+            {
+                <tr>
+                    <td>@s.SchoolCode</td>
+                    <td>
+                        <a href="/students/@s.StudentID">
+                            @* TEMP: Placeholder logic *@
+                            @(s.StudentID + 99400000)
+                        </a>
+                    </td>
+                    <td>@s.LastName</td>
+                    <td>@s.FirstName</td>
+                    <td>@s.Address</td>
+                    <td>@s.City</td>
+                    <td>@s.State</td>
+                    <td>@s.ZIPCode</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
 
 @code 
 {
-    @* TEMP: List prior to DB integration *@
-    private List<Student> students = new()
+    private List<Student> StudentList { get; set; } = new();
+    private bool IsLoading { get; set; }
+
+    protected override async Task OnInitializedAsync()
     {
-        new Student
+        IsLoading = true;
+        await LoadAllStudents();
+        IsLoading = false;
+    }
+
+    private Task LoadAllStudents()
+    {
+        using var context = DbFactory.CreateDbContext();
+        if(context.Students != null)
         {
-            StudentID = 99400001,
-            LastName = "Abbott",
-            FirstName = "Allan",
-            Address = "1118 Glenview Lane",
-        },
-        new Student
-        {
-            StudentID = 99400011,
-            LastName = "Abrahamson",
-            FirstName = "Arnold",
-            Address = "1126 E Walton Rd.",
+            StudentList = context.Students.ToList();
         }
-    };
+        return Task.CompletedTask;
+    }
 }

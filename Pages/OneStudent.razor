@@ -1,65 +1,75 @@
 @page "/students/{StudentID:int}"
-@using StudentSearcher.Data
+@using StudentSearcher.Models
+@inject IDbContextFactory<MyContext> DbFactory
 
 <PageTitle>StudentSeacher - @StudentID</PageTitle>
 <link href="/css/custom.css" rel="stylesheet" />
 
-@* TEMP: Placeholder conditional for validation 
-(prior to DB Integration) *@
-@if(StudentID >= 99500000 || StudentID <= 99400000 )
-{
-    <h2 style="color: red;">Invalid Student ID</h2>
-}
-else
-{
-    <h1>Contacts for @StudentID</h1>
+<Header></Header>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Student ID</th>
-                <th>Last Name</th>
-                <th>First Name</th>
-                <th>Relationship</th>
-                <th>Email Address</th>
-                <th>Mobile</th>
-                <th>Address</th>
-                <th>City</th>
-                <th>State</th>
-                <th>Zip Code</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (Contact c in contacts)
-            {
-                @* TEMP: Conditional prior to StudentID validation *@
-                if(c.StudentID == StudentID)
+
+@if(!IsLoading && IsValidID && IsFound && SingleStudent != null && StudentContacts != null)
+{
+    <h2>Contacts for @SingleStudent.LastName, @SingleStudent.FirstName</h2>
+
+    @if(StudentContacts.Count == 0)
+    {
+        <h3 class="none">No contacts</h3>
+    }
+    else
+    {
+        <table>
+            <thead>
+                <tr>
+                    <th>Student ID</th>
+                    <th>Last Name</th>
+                    <th>First Name</th>
+                    <th>Relationship</th>
+                    <th>Email Address</th>
+                    <th>Mobile</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Zip Code</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Contact c in StudentContacts)
                 {
                     <tr>
-                        <td>@c.StudentID</td>
-                        <td>@c.LastName</td>
-                        <td>@c.FirstName</td>
-                        <td>@c.Relationship</td>
-                        <td>@c.EmailAddress</td>
-                        <td>@c.MobileNumber</td>
-                        <td>@c.Address</td>
-                        <td>@c.City</td>
-                        <td>@c.State</td>
-                        <td>@c.ZIPCode</td>
+                            <td>@c.StudentID</td>
+                            <td>@c.LastName</td>
+                            <td>@c.FirstName</td>
+                            <td>@c.Relationship</td>
+                            <td>@c.EmailAddress</td>
+                            <td>@c.MobileNumber</td>
+                            <td>@c.Address</td>
+                            <td>@c.City</td>
+                            <td>@c.State</td>
+                            <td>@c.ZIPCode</td>
                     </tr>
                 }
-            }
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    }
+}
+else if (!IsLoading && (!IsValidID || !IsFound))
+{
+    <h2 class="none">Invalid Student ID</h2>
+}
+@if(IsLoading)
+{
+    <h3 class="loading">Loading...</h3>
 }
 
+
 <br>
-<h2>
+<h4>
     Back to
     <a href="/students">
         Student Data
     </a>
-</h2>
+</h4>
 
 
 @code 
@@ -67,38 +77,52 @@ else
     [Parameter]
     public int StudentID { get; set; }
 
-    @* TEMP: List prior to DB integration *@
-    private List<Contact> contacts = new()
+    private Student? SingleStudent { get; set; }
+    private List<Contact>? StudentContacts { get; set; }
+    private bool IsLoading { get; set; }
+    private bool IsValidID { get; set; }
+    private bool IsFound { get; set; }
+
+    protected override async Task OnInitializedAsync()
     {
-        new Contact
+        IsLoading = true;
+        await CheckID();
+        if(IsValidID)
         {
-            LastName = "Abbott",
-            FirstName = "Sara",
-            Relationship = "Mother", 
-            EmailAddress = "sara@example.com",
-            MobileNumber = "949-123-4567",
-            Address = "1118 Glenview Lane",
-            StudentID = 99400001
-        },
-        new Contact
-        {
-            LastName = "Abbott",
-            FirstName = "Adam",
-            Relationship = "Father", 
-            EmailAddress = "adam@example.com",
-            MobileNumber = "949-123-5678",
-            Address = "1118 Glenview Lane",
-            StudentID = 99400001
-        },
-        new Contact
-        {
-            LastName = "Abrahamson",
-            FirstName = "Jonathan",
-            Relationship = "Uncle", 
-            EmailAddress = "jonathan@example.com",
-            MobileNumber = "949-234-4567",
-            Address = "1126 E Walton Rd.",
-            StudentID = 99400011
+            await LoadOneStudent();
+            if(IsFound)
+            {
+                await LoadStudentContacts();
+            }
         }
-    };
+        IsLoading = false;
+    }
+
+    private Task CheckID()
+    {
+        IsValidID = 
+            (StudentID+99400000 >= 99500000 || StudentID+99400000 <= 99400000)
+                ? false
+                : true;
+        return Task.CompletedTask;
+    }
+
+    private Task LoadOneStudent()
+    {
+        using var context = DbFactory.CreateDbContext();
+        Student? retrievedStudent = context.Students
+            .FirstOrDefault(s => s.StudentID == StudentID);
+        IsFound = (retrievedStudent == null) ? false : true;
+        SingleStudent = retrievedStudent;
+        return Task.CompletedTask;
+    }
+
+    private Task LoadStudentContacts()
+    {
+        using var context = DbFactory.CreateDbContext();
+        StudentContacts = context.Contacts
+            .Where(c => c.StudentID == StudentID)
+            .ToList();
+        return Task.CompletedTask;
+    }
 }
