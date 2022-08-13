@@ -78,39 +78,6 @@
         }
       },
       {
-        "HashCode": -1751471835,
-        "Kind": "Components.Component",
-        "Name": "StudentSearcher.Pages.AllContacts",
-        "AssemblyName": "StudentSearcher",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "AllContacts"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "StudentSearcher.Pages.AllContacts"
-        }
-      },
-      {
-        "HashCode": 1642819769,
-        "Kind": "Components.Component",
-        "Name": "StudentSearcher.Pages.AllContacts",
-        "AssemblyName": "StudentSearcher",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "StudentSearcher.Pages.AllContacts"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "StudentSearcher.Pages.AllContacts",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
         "HashCode": 54788547,
         "Kind": "Components.Component",
         "Name": "StudentSearcher.Pages.OneStudent",
@@ -164,35 +131,35 @@
         }
       },
       {
-        "HashCode": -451703409,
+        "HashCode": -1751471835,
         "Kind": "Components.Component",
-        "Name": "StudentSearcher.App",
+        "Name": "StudentSearcher.Pages.AllContacts",
         "AssemblyName": "StudentSearcher",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "App"
+            "TagName": "AllContacts"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "StudentSearcher.App"
+          "Common.TypeName": "StudentSearcher.Pages.AllContacts"
         }
       },
       {
-        "HashCode": 1583204748,
+        "HashCode": 1642819769,
         "Kind": "Components.Component",
-        "Name": "StudentSearcher.App",
+        "Name": "StudentSearcher.Pages.AllContacts",
         "AssemblyName": "StudentSearcher",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "StudentSearcher.App"
+            "TagName": "StudentSearcher.Pages.AllContacts"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "StudentSearcher.App",
+          "Common.TypeName": "StudentSearcher.Pages.AllContacts",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -226,6 +193,39 @@
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "StudentSearcher.Shared.Header",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 60811214,
+        "Kind": "Components.Component",
+        "Name": "StudentSearcher.Shared.NavMenu",
+        "AssemblyName": "StudentSearcher",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "NavMenu"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "StudentSearcher.Shared.NavMenu"
+        }
+      },
+      {
+        "HashCode": -1506846405,
+        "Kind": "Components.Component",
+        "Name": "StudentSearcher.Shared.NavMenu",
+        "AssemblyName": "StudentSearcher",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "StudentSearcher.Shared.NavMenu"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "StudentSearcher.Shared.NavMenu",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -326,35 +326,35 @@
         }
       },
       {
-        "HashCode": 60811214,
+        "HashCode": -451703409,
         "Kind": "Components.Component",
-        "Name": "StudentSearcher.Shared.NavMenu",
+        "Name": "StudentSearcher.App",
         "AssemblyName": "StudentSearcher",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "NavMenu"
+            "TagName": "App"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "StudentSearcher.Shared.NavMenu"
+          "Common.TypeName": "StudentSearcher.App"
         }
       },
       {
-        "HashCode": -1506846405,
+        "HashCode": 1583204748,
         "Kind": "Components.Component",
-        "Name": "StudentSearcher.Shared.NavMenu",
+        "Name": "StudentSearcher.App",
         "AssemblyName": "StudentSearcher",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "StudentSearcher.Shared.NavMenu"
+            "TagName": "StudentSearcher.App"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "StudentSearcher.Shared.NavMenu",
+          "Common.TypeName": "StudentSearcher.App",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },

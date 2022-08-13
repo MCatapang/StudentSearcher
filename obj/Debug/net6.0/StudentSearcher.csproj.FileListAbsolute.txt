@@ -7,7 +7,6 @@
 /Users/maocatap/Documents/Projects/StudentSearcher/obj/Debug/net6.0/StudentSearcher.RazorAssemblyInfo.cache
 /Users/maocatap/Documents/Projects/StudentSearcher/obj/Debug/net6.0/StudentSearcher.RazorAssemblyInfo.cs
 /Users/maocatap/Documents/Projects/StudentSearcher/bin/Debug/net6.0/appsettings.Development.json
-/Users/maocatap/Documents/Projects/StudentSearcher/bin/Debug/net6.0/appsettings.json
 /Users/maocatap/Documents/Projects/StudentSearcher/bin/Debug/net6.0/StudentSearcher.staticwebassets.runtime.json
 /Users/maocatap/Documents/Projects/StudentSearcher/bin/Debug/net6.0/StudentSearcher
 /Users/maocatap/Documents/Projects/StudentSearcher/bin/Debug/net6.0/StudentSearcher.deps.json
