@@ -12,6 +12,15 @@ tr > * {
     overflow: scroll;
 }
 
+
+.loading {
+    color: green;
+}
+.none {
+    color: red;
+}
+
+
 @media (max-width: 641px) and (min-width: 0px) {
     tr > * {
         padding: 0px;

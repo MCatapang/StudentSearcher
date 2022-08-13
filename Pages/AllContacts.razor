@@ -1,83 +1,82 @@
 @page "/contacts"
 @using StudentSearcher.Models
+@inject IDbContextFactory<MyContext> DbFactory
 
 <PageTitle>StudentSeacher - Student Data</PageTitle>
 <link href="/css/custom.css" rel="stylesheet" />
 
-<h1>Contact Data</h1>
+<Header></Header>
+<h2>Contact Data</h2>
 
-<table>
-    <thead>
-        <tr>
-            <th>Student ID</th>
-            <th>Last Name</th>
-            <th>First Name</th>
-            <th>Relationship</th>
-            <th>Email Address</th>
-            <th>Mobile</th>
-            <th>Address</th>
-            <th>City</th>
-            <th>State</th>
-            <th>Zip Code</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (Contact c in contacts)
-        {
+@* Conditional rendering *@
+@if(IsLoading)
+{
+    <h3 class="loading">Loading...</h3>
+}
+else if (ContactList.Count() == 0)
+{
+    <h3 class="none">No contacts in DB</h3>
+}
+else
+{
+    <table class="dbDataTable">
+        <thead>
             <tr>
-                <td>
-                    <a href="/students/@c.StudentID">
-                        @c.StudentID
-                    </a>
-                </td>
-                <td>@c.LastName</td>
-                <td>@c.FirstName</td>
-                <td>@c.Relationship</td>
-                <td>@c.EmailAddress</td>
-                <td>@c.MobileNumber</td>
-                <td>@c.Address</td>
-                <td>@c.City</td>
-                <td>@c.State</td>
-                <td>@c.ZIPCode</td>
+                <th>Student ID</th>
+                <th>Last Name</th>
+                <th>First Name</th>
+                <th>Relationship</th>
+                <th>Email Address</th>
+                <th>Mobile</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Zip Code</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (Contact c in ContactList)
+            {
+                <tr>
+                    <td>
+                        <a href="/students/@c.StudentID">
+                            @c.StudentID
+                        </a>
+                    </td>
+                    <td>@c.LastName</td>
+                    <td>@c.FirstName</td>
+                    <td>@c.Relationship</td>
+                    <td>@c.EmailAddress</td>
+                    <td>@c.MobileNumber</td>
+                    <td>@c.Address</td>
+                    <td>@c.City</td>
+                    <td>@c.State</td>
+                    <td>@c.ZIPCode</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
 
 @code 
 {
-    @* TEMP: List prior to DB integration *@
-    private List<Contact> contacts = new()
+    private List<Contact> ContactList { get; set; } = new();
+    private bool IsLoading { get; set; }
+
+    protected override async Task OnInitializedAsync()
     {
-        new Contact
+        IsLoading = true;
+        await LoadAllContacts();
+        IsLoading = false;
+    }
+
+    private Task LoadAllContacts()
+    {
+        using var context = DbFactory.CreateDbContext();
+        if(context.Contacts != null)
         {
-            LastName = "Abbott",
-            FirstName = "Sara",
-            Relationship = "Mother", 
-            EmailAddress = "sara@example.com",
-            MobileNumber = "949-123-4567",
-            Address = "1118 Glenview Lane",
-            StudentID = 99400001
-        },
-        new Contact
-        {
-            LastName = "Abbott",
-            FirstName = "Adam",
-            Relationship = "Father", 
-            EmailAddress = "adam@example.com",
-            MobileNumber = "949-123-5678",
-            Address = "1118 Glenview Lane",
-            StudentID = 99400001
-        },
-        new Contact
-        {
-            LastName = "Abrahamson",
-            FirstName = "Jonathan",
-            Relationship = "Uncle", 
-            EmailAddress = "jonathan@example.com",
-            MobileNumber = "949-234-4567",
-            Address = "1126 E Walton Rd.",
-            StudentID = 99400011
+            ContactList = context.Contacts.ToList();
         }
-    };
+        return Task.CompletedTask;
+    }
 }

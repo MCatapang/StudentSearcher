@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // MySQL service
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<MyContext>(options =>
+builder.Services.AddDbContextFactory<MyContext>(options =>
 {
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
 });

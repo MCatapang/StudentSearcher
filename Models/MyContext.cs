@@ -5,7 +5,10 @@ namespace StudentSearcher.Models;
 public class MyContext : DbContext
 {
     public MyContext() { }
-    public MyContext(DbContextOptions<MyContext> options) : base(options) { }
+    public MyContext(DbContextOptions<MyContext> options) : base(options) 
+    { 
+        Console.WriteLine("Context was successfully created");
+    }
 
     /* 
         Logic for Student primary key incrementation.
