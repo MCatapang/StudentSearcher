@@ -47,7 +47,9 @@ else
                     <td>@c.FirstName</td>
                     <td>@c.Relationship</td>
                     <td>@c.EmailAddress</td>
-                    <td>@c.MobileNumber</td>
+                    <td>
+                        @String.Format("{0: (###) ###-####}", Convert.ToInt64(c.MobileNumber))
+                    </td>
                     <td>@c.Address</td>
                     <td>@c.City</td>
                     <td>@c.State</td>

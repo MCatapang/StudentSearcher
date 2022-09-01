@@ -12,39 +12,6 @@
   "ProjectWorkspaceState": {
     "TagHelpers": [
       {
-        "HashCode": 1345755019,
-        "Kind": "Components.Component",
-        "Name": "StudentSearcher.Pages.AllContacts",
-        "AssemblyName": "StudentSearcher",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "AllContacts"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "StudentSearcher.Pages.AllContacts"
-        }
-      },
-      {
-        "HashCode": 2099511363,
-        "Kind": "Components.Component",
-        "Name": "StudentSearcher.Pages.AllContacts",
-        "AssemblyName": "StudentSearcher",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "StudentSearcher.Pages.AllContacts"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "StudentSearcher.Pages.AllContacts",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
         "HashCode": -2108645728,
         "Kind": "Components.Component",
         "Name": "StudentSearcher.Pages.Index",
@@ -74,6 +41,39 @@
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
           "Common.TypeName": "StudentSearcher.Pages.Index",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 343362851,
+        "Kind": "Components.Component",
+        "Name": "StudentSearcher.Pages.AllStudents",
+        "AssemblyName": "StudentSearcher",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "AllStudents"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "StudentSearcher.Pages.AllStudents"
+        }
+      },
+      {
+        "HashCode": -374783614,
+        "Kind": "Components.Component",
+        "Name": "StudentSearcher.Pages.AllStudents",
+        "AssemblyName": "StudentSearcher",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "StudentSearcher.Pages.AllStudents"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "StudentSearcher.Pages.AllStudents",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -131,35 +131,35 @@
         }
       },
       {
-        "HashCode": 343362851,
+        "HashCode": 1345755019,
         "Kind": "Components.Component",
-        "Name": "StudentSearcher.Pages.AllStudents",
+        "Name": "StudentSearcher.Pages.AllContacts",
         "AssemblyName": "StudentSearcher",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "AllStudents"
+            "TagName": "AllContacts"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "StudentSearcher.Pages.AllStudents"
+          "Common.TypeName": "StudentSearcher.Pages.AllContacts"
         }
       },
       {
-        "HashCode": -374783614,
+        "HashCode": 2099511363,
         "Kind": "Components.Component",
-        "Name": "StudentSearcher.Pages.AllStudents",
+        "Name": "StudentSearcher.Pages.AllContacts",
         "AssemblyName": "StudentSearcher",
         "CaseSensitive": true,
         "TagMatchingRules": [
           {
-            "TagName": "StudentSearcher.Pages.AllStudents"
+            "TagName": "StudentSearcher.Pages.AllContacts"
           }
         ],
         "Metadata": {
           "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "StudentSearcher.Pages.AllStudents",
+          "Common.TypeName": "StudentSearcher.Pages.AllContacts",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
