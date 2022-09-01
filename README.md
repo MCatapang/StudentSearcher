@@ -26,7 +26,3 @@ A mini-project highlighting SPA capabilities in .NET
   - *City*
   - *State*
   - *Zip Code*
-
-## Submission Files
-- Source Code (GitHub or .zip)
-- Scripts to create tables
