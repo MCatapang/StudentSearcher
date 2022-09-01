@@ -37,7 +37,10 @@
                 @foreach (Contact c in StudentContacts)
                 {
                     <tr>
-                            <td>@c.StudentID</td>
+                            <td>
+                                @* TEMP: Placeholder logic *@
+                                @(c.StudentID + 99400000)
+                            </td>
                             <td>@c.LastName</td>
                             <td>@c.FirstName</td>
                             <td>@c.Relationship</td>
